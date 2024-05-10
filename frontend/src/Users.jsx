@@ -39,6 +39,24 @@ const User = () => {
         console.error("Axios Error : ", error);
       });
   };
+
+  const updateUser = (data) => {
+    setSubmitted(true);
+
+    const payload = {
+      id: data.id,
+      name: data.name,
+    };
+
+    Axios.put("http://localhost:3001/api/updateuser", payload)
+      .then(() => {
+        getUsers();
+        setSubmitted(false);
+      })
+      .catch((error) => {
+        console.error("Axios Error : ", error);
+      });
+  }
   return (
     <>
       <Box
