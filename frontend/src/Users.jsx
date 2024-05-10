@@ -54,7 +54,6 @@ const User = () => {
     Axios.post("http://localhost:3001/api/updateuser", payload)
       .then(() => {
         getUsers();
-        setSubmitted(false);
       })
       .catch((error) => {
         console.error("Axios Error : ", error);
@@ -62,7 +61,7 @@ const User = () => {
   };
 
   const deleteUser = (data) => {
-    Axios.delete("http://localhost:3001/api/deleteuser/", data)
+    Axios.post("http://localhost:3001/api/deleteuser/", data)
       .then(() => {
         getUsers();
       })

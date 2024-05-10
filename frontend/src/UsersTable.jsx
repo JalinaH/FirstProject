@@ -41,7 +41,10 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                   >
                     Edit
                   </Button>
-                  <Button sx={{ margin: "0px 10px" }} onClick={() => deleteUser({id: row.id})}>
+                  <Button
+                    sx={{ margin: "0px 10px" }}
+                    onClick={() => deleteUser({ id: row.id })}
+                  >
                     Delete
                   </Button>
                 </TableCell>
