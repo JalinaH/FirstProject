@@ -60,6 +60,16 @@ const User = () => {
         console.error("Axios Error : ", error);
       });
   };
+
+  const deleteUser = (id) => {
+    Axios.delete("http://localhost:3001/api/deleteuser/", id)
+      .then(() => {
+        getUsers();
+      })
+      .catch((error) => {
+        console.error("Axios Error : ", error);
+      });
+  }
   return (
     <>
       <Box
@@ -83,6 +93,7 @@ const User = () => {
             setSelectedUser(data);
             setIsEdit(true);
           }}
+          deleteUser={deleteUser}
         />
       </Box>
     </>
