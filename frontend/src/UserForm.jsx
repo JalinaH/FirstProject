@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Input, Typography } from "@mui/material";
+import { Button, Grid, Input, Typography } from "@mui/material";
 
 const UserForm = (props) => {
   return (
@@ -18,7 +18,7 @@ const UserForm = (props) => {
         </Typography>
       </Grid>
 
-      <Grid>
+      <Grid item xs={10} sm={6} sx={{ display: "flex" }}>
         <Typography
           component={"label"}
           htmlFor="id"
@@ -32,15 +32,56 @@ const UserForm = (props) => {
         >
           ID
         </Typography>
-        <Input 
-            type="number"
-            id="id"
-            name="id"
-            sx={{ width: "400px" }}
-            value={""}
-            onChange={e => {}}
+        <Input
+          type="number"
+          id="id"
+          name="id"
+          sx={{ width: "400px" }}
+          value={""}
+          onChange={(e) => {}}
         />
       </Grid>
+
+      <Grid item xs={10} sm={6} sx={{ display: "flex" }}>
+        <Typography
+          component={"label"}
+          htmlFor="id"
+          sx={{
+            color: "#000",
+            fontSize: "16px",
+            marginRight: "20px",
+            display: "block",
+            width: "100px",
+          }}
+        >
+          Name
+        </Typography>
+        <Input
+          type="number"
+          id="name"
+          name="name"
+          sx={{ width: "400px" }}
+          value={""}
+          onChange={(e) => {}}
+        />
+      </Grid>
+
+      <Button
+        sx={{
+          margin: "auto",
+          marginBottom: "20px",
+          backgroundColor: "#00c6e6",
+          color: "black",
+          marginLeft: "15px",
+          marginTop: "20px",
+          "&:hover": {
+            opacity: "0.7",
+            backgroundColor: "#00c6e6",
+          },
+        }}
+      >
+        Add
+      </Button>
     </Grid>
   );
 };
