@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const User = () => {
   const [users, setUsers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
     getUsers();
@@ -34,6 +35,7 @@ const User = () => {
       .then(() => {
         getUsers();
         setSubmitted(false);
+        isEdit(false);
       })
       .catch((error) => {
         console.error("Axios Error : ", error);
@@ -48,7 +50,7 @@ const User = () => {
       name: data.name,
     };
 
-    Axios.put("http://localhost:3001/api/updateuser", payload)
+    Axios.post("http://localhost:3001/api/updateuser", payload)
       .then(() => {
         getUsers();
         setSubmitted(false);
