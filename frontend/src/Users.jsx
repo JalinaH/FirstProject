@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const User = () => {
   const [users, setUsers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const User = () => {
       .catch((error) => {
         console.error("Axios Error : ", error);
       });
-  }
+  };
   return (
     <>
       <Box
@@ -68,11 +69,14 @@ const User = () => {
           marginTop: "100px",
         }}
       >
-        <UserForm
-          addUser={addUser}
-          submitted={submitted}
+        <UserForm addUser={addUser} submitted={submitted} />
+        <UsersTable
+          rows={users}
+          selectedUser={(data) => {
+            setSelectedUser(data);
+            setIsEdit(true);
+          }}
         />
-        <UsersTable rows={users} />
       </Box>
     </>
   );
