@@ -36,7 +36,9 @@ const UserForm = (props) => {
             type="number"
             id="id"
             name="id"
-            
+            sx={{ width: "400px" }}
+            value={""}
+            onChange={e => {}}
         />
       </Grid>
     </Grid>
