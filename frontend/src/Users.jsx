@@ -71,6 +71,7 @@ const User = () => {
       >
         <UserForm
           addUser={addUser}
+          updateUser={updateUser}
           submitted={submitted}
           data={selectedUser}
           isEdit={isEdit}
