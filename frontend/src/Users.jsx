@@ -48,7 +48,9 @@ const User = () => {
           marginTop: "100px",
         }}
       >
-        <UserForm />
+        <UserForm
+          addUser={addUser}
+        />
         <UsersTable rows={users} />
       </Box>
     </>
