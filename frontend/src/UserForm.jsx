@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Input, Typography } from "@mui/material";
 
 const UserForm = (props) => {
   return (
@@ -12,9 +12,33 @@ const UserForm = (props) => {
         display: "block",
       }}
     >
-        <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6}>
+        <Typography component={"h1"} sx={{ color: "black" }}>
+          User Form
+        </Typography>
+      </Grid>
+
+      <Grid>
+        <Typography
+          component={"label"}
+          htmlFor="id"
+          sx={{
+            color: "#000",
+            fontSize: "16px",
+            marginRight: "20px",
+            display: "block",
+            width: "100px",
+          }}
+        >
+          ID
+        </Typography>
+        <Input 
+            type="number"
+            id="id"
+            name="id"
             
-        </Grid>
+        />
+      </Grid>
     </Grid>
   );
 };
