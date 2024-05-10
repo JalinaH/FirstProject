@@ -14,7 +14,7 @@ const User = () => {
   const getUsers = () => {
     Axios.get("http://localhost:3001/api/users")
       .then(response => {
-        console.log(response.data.response);
+        setUsers(response?.data?.response);
       })
   }
 
