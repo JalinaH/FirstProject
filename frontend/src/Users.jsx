@@ -61,8 +61,8 @@ const User = () => {
       });
   };
 
-  const deleteUser = (id) => {
-    Axios.delete("http://localhost:3001/api/deleteuser/", id)
+  const deleteUser = (data) => {
+    Axios.delete("http://localhost:3001/api/deleteuser/", data)
       .then(() => {
         getUsers();
       })
@@ -93,7 +93,7 @@ const User = () => {
             setSelectedUser(data);
             setIsEdit(true);
           }}
-          deleteUser={deleteUser}
+          deleteUser={data => window.confirm("Are you sure you want to delete this user?") && deleteUser(data)}
         />
       </Box>
     </>
