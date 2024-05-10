@@ -46,7 +46,7 @@ const UsersTable = ({ rows }) => {
             ))
           ) : (
             <TableRow>
-              <TableCell component="th" scope="row">
+              <TableCell colSpan={3}>
                 No data
               </TableCell>
             </TableRow>
@@ -56,3 +56,5 @@ const UsersTable = ({ rows }) => {
     </TableContainer>
   );
 };
+
+export default UsersTable;
