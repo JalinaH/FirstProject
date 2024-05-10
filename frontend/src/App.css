@@ -14,10 +14,10 @@ h1{
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
-    margin: 8px auto; /* center the button horizontally */
+    margin: 8px auto; 
     border: none;
     cursor: pointer;
     font-size: 20px;
     border-radius: 5px;
-    display: block; /* ensure the button takes up the full width */
+    display: block; 
 }

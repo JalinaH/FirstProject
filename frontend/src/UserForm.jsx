@@ -7,13 +7,13 @@ const UserForm = (props) => {
       container
       spacing={2}
       sx={{
-        backgroundColor: "white",
+        backgroundColor: "#ffffff",
         marginBottom: "30px",
         display: "block",
       }}
     >
       <Grid item xs={12} sm={6}>
-        <Typography component={"h1"} sx={{ color: "black" }}>
+        <Typography component={"h1"} sx={{ color: "#000000" }}>
           User Form
         </Typography>
       </Grid>
@@ -23,7 +23,7 @@ const UserForm = (props) => {
           component={"label"}
           htmlFor="id"
           sx={{
-            color: "#000",
+            color: "#000000",
             fontSize: "16px",
             marginRight: "20px",
             display: "block",
@@ -71,7 +71,7 @@ const UserForm = (props) => {
           margin: "auto",
           marginBottom: "20px",
           backgroundColor: "#00c6e6",
-          color: "black",
+          color: "#ffffff",
           marginLeft: "15px",
           marginTop: "20px",
           "&:hover": {
