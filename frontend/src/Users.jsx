@@ -69,7 +69,13 @@ const User = () => {
           marginTop: "100px",
         }}
       >
-        <UserForm addUser={addUser} submitted={submitted} data={selectedUser} />
+        <UserForm
+          addUser={addUser}
+          submitted={submitted}
+          data={selectedUser}
+          isEdit={isEdit}
+        />
+
         <UsersTable
           rows={users}
           selectedUser={(data) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 
-const UserForm = ({ addUser, submitted, data }) => {
+const UserForm = ({ addUser, submitted, data, isEdit }) => {
   const [id, setId] = useState(0);
   const [name, setName] = useState("");
 
@@ -100,7 +100,9 @@ const UserForm = ({ addUser, submitted, data }) => {
           addUser({ id, name});
         }}
       >
-        Add
+        {
+          isEdit ? 'Update' : 'Add'
+        }
       </Button>
     </Grid>
   );
