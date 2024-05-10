@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 
 const UserForm = (props) => {
+  const [id, setId] = setState(0);
+  const [name, setName] = setState("");
+
   return (
     <Grid
       container
