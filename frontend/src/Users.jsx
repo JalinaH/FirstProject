@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const User = () => {
   const [users, setUsers] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     getUsers();
@@ -13,18 +14,40 @@ const User = () => {
 
   const getUsers = () => {
     Axios.get("http://localhost:3001/api/users")
-      .then(response => {
-        setUsers(response?.data?.response);
+      .then((response) => {
+        setUsers(response.data?.response || []);
       })
-  }
+      .catch((error) => {
+        console.error("Axios Error : ", error);
+      });
+  };
 
+  const addUser = (data) => {
+    setSubmitted(true);
+
+    const payload = {
+      id: data.id,
+      name: data.name,
+    };
+
+    Axios.post("http://localhost:3001/api/createuser", payload)
+      .then(() => {
+        getUsers();
+        setSubmitted(false);
+      })
+      .catch((error) => {
+        console.error("Axios Error : ", error);
+      });
+  };
   return (
     <>
-      <Box sx={{
-        width: 'calc(100% - 100px)',
-        margin: 'auto',
-        marginTop: '100px',
-      }}>
+      <Box
+        sx={{
+          width: "calc(100% - 100px)",
+          margin: "auto",
+          marginTop: "100px",
+        }}
+      >
         <UserForm />
         <UsersTable rows={users} />
       </Box>
