@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 
 const UserForm = (props) => {
-  const [id, setId] = setState(0);
-  const [name, setName] = setState("");
+  const [id, setId] = useState(0);
+  const [name, setName] = useState("");
 
   return (
     <Grid
@@ -48,7 +48,7 @@ const UserForm = (props) => {
       <Grid item xs={10} sm={6} sx={{ display: "flex" }}>
         <Typography
           component={"label"}
-          htmlFor="id"
+          htmlFor="name"
           sx={{
             color: "#000",
             fontSize: "16px",
@@ -60,7 +60,7 @@ const UserForm = (props) => {
           Name
         </Typography>
         <Input
-          type="number"
+          type="text"
           id="name"
           name="name"
           sx={{ width: "400px" }}
