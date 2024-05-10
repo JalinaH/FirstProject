@@ -1,4 +1,5 @@
 import UserForm from "./UserForm";
+import UsersTable from "./UsersTable";
 
 const users = [
   {
@@ -14,7 +15,8 @@ const users = [
 const User = () => {
   return (
     <>
-        <UserForm />
+      <UserForm />
+      <UsersTable />
     </>
   );
 };
