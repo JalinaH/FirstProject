@@ -1,19 +1,21 @@
 import { Box, cardClasses } from "@mui/material";
 import UserForm from "./UserForm";
 import UsersTable from "./UsersTable";
-
-const users = [
-  {
-    id: 1,
-    name: "John Doe",
-  },
-  {
-    id: 2,
-    name: "Jane Doe",
-  },
-];
+import Axios from "axios";
+import { useState } from "react";
 
 const User = () => {
+  const [users, setUsers] = useState([]);
+
+  
+
+  const getUsers = () => {
+    Axios.get("http://localhost:3001/api/users")
+      .then(response => {
+        console.log(response);
+      })
+  }
+
   return (
     <>
       <Box sx={{
