@@ -1,0 +1,41 @@
+h1{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: 900;
+    font-size: 50px;
+}
+
+p{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+h2{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0a0a23;
+    background-color: #3b3b4f;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px auto;
+    width: 20%;
+    justify-content: center;
+}
