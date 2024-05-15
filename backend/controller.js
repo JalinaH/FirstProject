@@ -13,7 +13,11 @@ const getUsers = (req, res, next) => {
 const addUser = (req, res, next) => {
   const user = new User({
     id: req.body.id,
-    name: req.body.name,
+    f_name: req.body.f_name,
+    l_name: req.body.l_name,
+    email: req.body.email,
+    dob: req.body.dob,
+    account_type: req.body.account_type,
   });
   user
     .save()
