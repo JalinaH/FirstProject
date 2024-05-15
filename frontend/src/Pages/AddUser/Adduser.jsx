@@ -1,9 +1,10 @@
 import React from "react";
+import "./AddUser.css";
 
 const AddUser = () => {
   return (
     <>
-      <div>
+      <div className="form-container">
         <h2>User Registration Form</h2>
 
         <form>
