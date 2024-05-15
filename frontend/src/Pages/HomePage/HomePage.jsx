@@ -1,11 +1,13 @@
 import React from "react";
-import UserDashBoard from "../UserDashBoard/UserDashBoard";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+    const navigate = useNavigate();
+
     return (
         <>
         <h1>Home</h1>
-        <UserDashBoard />
+        <button onClick={() => navigate("/users")}>Users</button>
         </>
     );
 };
