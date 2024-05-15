@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 
 const UserDashBoard = () => {
-    return (
-      <>
-        <div>
-          <h1>User Dashboard</h1>
-        </div>
-      </>
-    );
-}
+  const navigate = useNavigate();
+  return (
+    <>
+      <div>
+        <h1>User Dashboard</h1>
+
+        <button onClick={() => navigate("/users/adduser")}>Add User</button>
+      </div>
+    </>
+  );
+};
+
+export default UserDashBoard;
