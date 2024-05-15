@@ -6,7 +6,6 @@ const AddUser = () => {
     <>
       <div className="form-container">
         <h2>User Registration Form</h2>
-
         <form>
           <label>User ID:</label>
           <input type="number" name="id" />
