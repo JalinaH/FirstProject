@@ -66,7 +66,6 @@ const AddUser = () => {
         );
       }
     }
-
   };
 
   return (
@@ -124,7 +123,7 @@ const AddUser = () => {
             <label>
               <input
                 type="radio"
-                name="accountType"
+                name="account_type"
                 value="personal"
                 checked={formData.account_type === "personal"}
                 onChange={handleInputChange}
@@ -135,9 +134,9 @@ const AddUser = () => {
             <label>
               <input
                 type="radio"
-                name="accountType"
+                name="account_type"
                 value="business"
-                checked={formData.accountType === "business"}
+                checked={formData.account_type === "business"}
                 onChange={handleInputChange}
                 required
               />
