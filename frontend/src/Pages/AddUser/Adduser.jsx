@@ -21,25 +21,34 @@ const AddUser = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     try {
-      await axios.post(
-        "https://sample-user-management-system.onrender.com/users",
-        formData
-      );
+      if (location.state) {
+        await axios.put(
+          `https://sample-user-management-system.onrender.com/users/${formData.id}`,
+          formData
+        );
+        alert("User updated successfully!");
+      } else {
+        await axios.post(
+          "https://sample-user-management-system.onrender.com/users",
+          formData
+        );
+        alert("User registered successfully!");
+      }
       setFormData({
         id: "",
         f_name: "",
         l_name: "",
         email: "",
         dob: "",
-        account_type: "personal", 
+        account_type: "personal",
       });
-      alert("User registered successfully!");
     } catch (error) {
       console.error("Axios Error : ", error);
     }
   };
+
 
   useEffect(() => {
     if (location.state) {
@@ -123,7 +132,9 @@ const AddUser = () => {
             </label>
           </section>
 
-          <button type="submit">Register</button>
+          <button type="submit">
+            {location.state ? "Update" : "Register"}
+          </button>
         </form>
       </div>
     </>
