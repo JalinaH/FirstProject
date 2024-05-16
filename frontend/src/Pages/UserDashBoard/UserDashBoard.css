@@ -16,6 +16,16 @@ td{
     text-align: center;
     border-bottom: 1px solid #0a0a23;
 }
+.action-button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.action-button-row button {
+    margin-right: 5px;
+}
+
 
 h1{
     text-align: center;
