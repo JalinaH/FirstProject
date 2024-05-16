@@ -86,7 +86,7 @@ app.delete("/users/:id", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    await User.deleteOne({ id: userId }); // Or use User.deleteMany if you expect multiple documents with the same id
+    await User.deleteOne({ id: userId }); 
     res.json({ message: "User deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
