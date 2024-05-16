@@ -22,6 +22,7 @@ const AddUser = () => {
   };
 
   const handleSubmit = async (event) => {
+    console.log("Handle Submit called!");
     event.preventDefault();
     try {
       if (id) {
