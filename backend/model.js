@@ -3,21 +3,27 @@ const mongoose = require("./db");
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
+    required: true,
   },
-  fname: {
+  f_name: {
     type: String,
+    required: true,
   },
-  lname: {
+  l_name: {
     type: String,
+    required: true,
   },
   email: {
     type: String,
+    required: true,
   },
   dob: {
     type: String,
+    required: true,
   },
-  accounttype: {
+  account_type: {
     type: String,
+    required: true,
   },
 });
 

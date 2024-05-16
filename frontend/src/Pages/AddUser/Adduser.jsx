@@ -5,11 +5,11 @@ import axios from "axios"; // Import axios for making HTTP requests
 const AddUser = () => {
   const [formData, setFormData] = useState({
     id: "",
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     dob: "",
-    accountType: "personal", // Default account type
+    account_type: "personal", // Default account type
   });
 
   // Function to handle form input changes
@@ -30,11 +30,11 @@ const AddUser = () => {
       // If successful, clear form data
       setFormData({
         id: "",
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         dob: "",
-        accountType: "personal", // Reset account type to default
+        account_type: "personal", // Reset account type to default
       });
       alert("User registered successfully!");
     } catch (error) {
@@ -87,7 +87,7 @@ const AddUser = () => {
           <input
             type="text"
             name="firstName"
-            value={formData.firstName}
+            value={formData.first_name}
             onChange={handleInputChange}
             required
           />
@@ -96,7 +96,7 @@ const AddUser = () => {
           <input
             type="text"
             name="lastName"
-            value={formData.lastName}
+            value={formData.last_name}
             onChange={handleInputChange}
             required
           />
@@ -126,7 +126,7 @@ const AddUser = () => {
                 type="radio"
                 name="accountType"
                 value="personal"
-                checked={formData.accountType === "personal"}
+                checked={formData.account_type === "personal"}
                 onChange={handleInputChange}
                 required
               />

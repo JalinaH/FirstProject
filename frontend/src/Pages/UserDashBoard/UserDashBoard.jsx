@@ -37,11 +37,11 @@ const UserDashBoard = () => {
           </tr>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.f_Name}</td>
-              <td>{user.l_Name}</td>
+              <td>{user.f_name}</td>
+              <td>{user.l_name}</td>
               <td>{user.email}</td>
               <td>{user.dob}</td>
-              <td>{user.accountType}</td>
+              <td>{user.account_type}</td>
               <td className="action-button-row">
                 <button onClick={() => navigate(`/users/edituser/${user.id}`)}>
                   Edit
