@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddUser.css";
 import axios from "axios"; 
 import { useLocation } from "react-router-dom";
@@ -37,30 +37,15 @@ const AddUser = () => {
       });
       alert("User registered successfully!");
     } catch (error) {
-      if (error.response) {
-        const responseData = error.response.data;
-        if (responseData.errors) {
-          const errorMessages = Object.values(responseData.errors).join(", ");
-          alert(
-            "Failed to register user. Please fix the following errors: " +
-              errorMessages
-          );
-        } else {
-          console.error("Error registering user: ", responseData);
-          alert("Failed to register user. Error: " + responseData.message);
-        }
-      } else if (error.request) {
-        console.error("No response received from server.");
-        alert("Failed to register user. No response received from server.");
-      } else {
-        console.error("Error setting up the request: ", error.message);
-        alert(
-          "Failed to register user. Error setting up the request: " +
-            error.message
-        );
-      }
+      console.error("Axios Error : ", error);
     }
   };
+
+  useEffect(() => {
+    if (location.state) {
+      setFormData(location.state);
+    }
+  }, [location.state]);
 
   return (
     <>
