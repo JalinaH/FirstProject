@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 5000 || process.env.PORT;
-const host = "localhost" || process.env.HOST;
+const host = "0.0.0.0" || process.env.HOST;
 
 require("dotenv").config();
 const User = require("./model");
