@@ -4,10 +4,10 @@ const userSchema = new mongoose.Schema({
   id: {
     type: Number,
   },
-  f_name: {
+  fname: {
     type: String,
   },
-  l_name: {
+  lname: {
     type: String,
   },
   email: {
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   dob: {
     type: String,
   },
-  account_type: {
+  accounttype: {
     type: String,
   },
 });
