@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./AddUser.css";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const AddUser = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const location = useLocation();
 
   const [formData, setFormData] = useState({
@@ -24,9 +24,9 @@ const AddUser = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      if (location.state) {
-        await axios.put(
-          `https://sample-user-management-system.onrender.com/users/${formData.id}`,
+      if (id) {
+        await axios.patch(
+          `https://sample-user-management-system.onrender.com/users/${id}`,
           formData
         );
         alert("User updated successfully!");
@@ -49,6 +49,7 @@ const AddUser = () => {
       console.error("Axios Error : ", error);
     }
   };
+
 
   useEffect(() => {
     if (location.state) {
