@@ -43,7 +43,7 @@ const UserDashBoard = () => {
               <td>{user.dob}</td>
               <td>{user.account_type}</td>
               <td className="action-button-row">
-                <button onClick={() => navigate(`/users/edituser/${user.id}`)}>
+                <button onClick={() => navigate(`/users/adduser/${user.id}`, {state:user})}>
                   Edit
                 </button>
                 <button

@@ -1,64 +1,58 @@
 import React, { useState } from "react";
 import "./AddUser.css";
-import axios from "axios"; // Import axios for making HTTP requests
+import axios from "axios"; 
+import { useLocation } from "react-router-dom";
 
 const AddUser = () => {
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     id: "",
     f_name: "",
     l_name: "",
     email: "",
     dob: "",
-    account_type: "personal", // Default account type
+    account_type: "personal", 
   });
 
-  // Function to handle form input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Function to handle form submission
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault(); 
     try {
-      // Make HTTP POST request to backend API endpoint
       await axios.post(
         "https://sample-user-management-system.onrender.com/users",
         formData
       );
-      // If successful, clear form data
       setFormData({
         id: "",
         f_name: "",
         l_name: "",
         email: "",
         dob: "",
-        account_type: "personal", // Reset account type to default
+        account_type: "personal", 
       });
       alert("User registered successfully!");
     } catch (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code
         const responseData = error.response.data;
         if (responseData.errors) {
-          // Handle validation errors
           const errorMessages = Object.values(responseData.errors).join(", ");
           alert(
             "Failed to register user. Please fix the following errors: " +
               errorMessages
           );
         } else {
-          // Handle other types of errors
           console.error("Error registering user: ", responseData);
           alert("Failed to register user. Error: " + responseData.message);
         }
       } else if (error.request) {
-        // The request was made but no response was received
         console.error("No response received from server.");
         alert("Failed to register user. No response received from server.");
       } else {
-        // Something happened in setting up the request that triggered an error
         console.error("Error setting up the request: ", error.message);
         alert(
           "Failed to register user. Error setting up the request: " +
