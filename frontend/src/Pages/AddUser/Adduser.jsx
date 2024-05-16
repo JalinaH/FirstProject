@@ -1,26 +1,123 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddUser.css";
+import axios from "axios"; // Import axios for making HTTP requests
 
 const AddUser = () => {
+  const [formData, setFormData] = useState({
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    dob: "",
+    accountType: "personal", // Default account type
+  });
+
+  // Function to handle form input changes
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Function to handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    try {
+      // Make HTTP POST request to backend API endpoint
+      await axios.post(
+        "https://sample-user-management-system.onrender.com/users",
+        formData
+      );
+      // If successful, clear form data
+      setFormData({
+        id: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        dob: "",
+        accountType: "personal", // Reset account type to default
+      });
+      alert("User registered successfully!");
+    } catch (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        const responseData = error.response.data;
+        if (responseData.errors) {
+          // Handle validation errors
+          const errorMessages = Object.values(responseData.errors).join(", ");
+          alert(
+            "Failed to register user. Please fix the following errors: " +
+              errorMessages
+          );
+        } else {
+          // Handle other types of errors
+          console.error("Error registering user: ", responseData);
+          alert("Failed to register user. Error: " + responseData.message);
+        }
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received from server.");
+        alert("Failed to register user. No response received from server.");
+      } else {
+        // Something happened in setting up the request that triggered an error
+        console.error("Error setting up the request: ", error.message);
+        alert(
+          "Failed to register user. Error setting up the request: " +
+            error.message
+        );
+      }
+    }
+
+  };
+
   return (
     <>
       <div className="form-container">
         <h2>User Registration Form</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>User ID:</label>
-          <input type="number" name="id" required />
+          <input
+            type="number"
+            name="id"
+            value={formData.id}
+            onChange={handleInputChange}
+            required
+          />
 
           <label>First Name:</label>
-          <input type="text" name="firstName" required />
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            required
+          />
 
           <label>Last Name:</label>
-          <input type="text" name="lastName" required />
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            required
+          />
 
           <label>Email:</label>
-          <input type="email" name="email" required />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
 
           <label>Date of Birth:</label>
-          <input type="date" name="dob" required />
+          <input
+            type="date"
+            name="dob"
+            value={formData.dob}
+            onChange={handleInputChange}
+            required
+          />
 
           <section className="account-type">
             <label>Account Type:</label>
@@ -29,6 +126,8 @@ const AddUser = () => {
                 type="radio"
                 name="accountType"
                 value="personal"
+                checked={formData.accountType === "personal"}
+                onChange={handleInputChange}
                 required
               />
               Personal
@@ -38,6 +137,8 @@ const AddUser = () => {
                 type="radio"
                 name="accountType"
                 value="business"
+                checked={formData.accountType === "business"}
+                onChange={handleInputChange}
                 required
               />
               Business
