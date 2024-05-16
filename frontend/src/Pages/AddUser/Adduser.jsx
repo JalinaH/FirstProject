@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./AddUser.css";
-import axios from "axios"; 
+import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 const AddUser = () => {
+  const { id } = useParams();
   const location = useLocation();
 
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const AddUser = () => {
     l_name: "",
     email: "",
     dob: "",
-    account_type: "personal", 
+    account_type: "personal",
   });
 
   const handleInputChange = (event) => {
@@ -48,7 +49,6 @@ const AddUser = () => {
       console.error("Axios Error : ", error);
     }
   };
-
 
   useEffect(() => {
     if (location.state) {

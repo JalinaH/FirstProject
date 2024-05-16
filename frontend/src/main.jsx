@@ -12,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/" element={<HomePage />} />
       <Route path="/users" element={<UserDashBoard />} />
       <Route path="/users/adduser" element={<AddUser />} />
+      <Route path="/users/adduser/:id" element={<AddUser />} />
     </Routes>
   </BrowserRouter>
 );
