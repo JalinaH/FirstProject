@@ -2,28 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UserDashBoard.css";
 import { Plus } from "@phosphor-icons/react";
+import Axios from "axios";
 
 const UserDashBoard = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch(
-        "https://sample-user-management-system.onrender.com/users"
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch user data");
-      }
-      const data = await response.json();
-      setUsers(data);
-    } catch (error) {
-      console.error("Error fetching user data: ", error.message);
-    }
+  const getUsers = async () => {
+    Axios.get("https://sample-user-management-system.onrender.com/users")
+      .then((response) => {
+        setUsers(response.data || []);
+      })
+      .catch((error) => {
+        console.error("Axios Error : ", error);
+      });
   };
 
   useEffect(() => {
-    fetchUsers();
+    getUsers();
   }, []);
 
   return (
