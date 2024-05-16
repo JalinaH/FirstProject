@@ -85,7 +85,7 @@ const AddUser = () => {
           <label>First Name:</label>
           <input
             type="text"
-            name="first_name"
+            name="f_name"
             value={formData.f_name}
             onChange={handleInputChange}
             required
@@ -94,7 +94,7 @@ const AddUser = () => {
           <label>Last Name:</label>
           <input
             type="text"
-            name="last_name"
+            name="l_name"
             value={formData.l_name}
             onChange={handleInputChange}
             required
