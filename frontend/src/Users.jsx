@@ -15,7 +15,7 @@ const User = () => {
   }, []);
 
   const getUsers = () => {
-    Axios.get("http://localhost:3001/api/users")
+    Axios.get("http://localhost:3001/api/users") 
       .then((response) => {
         setUsers(response.data?.response || []);
       })
