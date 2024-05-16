@@ -1,13 +1,30 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const mongoose = require("./db");
 
-const userSchema = new Schema({
-    id: Number,
-    f_name: String,
-    l_name: String,
-    email: String,
-    dob: Date,
-    account_type: String,
+const userSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true,
+  },
+  f_name: {
+    type: String,
+    required: true,
+  },
+  l_name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  dob: {
+    type: Date,
+    required: true,
+  },
+  account_type: {
+    type: String,
+    required: true,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

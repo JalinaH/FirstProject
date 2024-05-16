@@ -1,3 +1,4 @@
+const { response } = require("./app");
 const User = require("./model");
 
 const getUsers = (req, res, next) => {
@@ -7,6 +8,7 @@ const getUsers = (req, res, next) => {
     })
     .catch((error) => {
       res.json({ error });
+      console.log(error);
     });
 };
 
