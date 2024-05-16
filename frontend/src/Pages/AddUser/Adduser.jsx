@@ -5,8 +5,8 @@ import axios from "axios"; // Import axios for making HTTP requests
 const AddUser = () => {
   const [formData, setFormData] = useState({
     id: "",
-    first_name: "",
-    last_name: "",
+    f_name: "",
+    l_name: "",
     email: "",
     dob: "",
     account_type: "personal", // Default account type
@@ -30,8 +30,8 @@ const AddUser = () => {
       // If successful, clear form data
       setFormData({
         id: "",
-        first_name: "",
-        last_name: "",
+        f_name: "",
+        l_name: "",
         email: "",
         dob: "",
         account_type: "personal", // Reset account type to default
@@ -86,7 +86,7 @@ const AddUser = () => {
           <input
             type="text"
             name="first_name"
-            value={formData.first_name}
+            value={formData.f_name}
             onChange={handleInputChange}
             required
           />
@@ -95,7 +95,7 @@ const AddUser = () => {
           <input
             type="text"
             name="last_name"
-            value={formData.last_name}
+            value={formData.l_name}
             onChange={handleInputChange}
             required
           />
