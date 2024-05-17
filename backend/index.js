@@ -9,7 +9,7 @@ const User = require("./model");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://sample-user-management-system.netlify.app/", 
+    origin: "https://sample-user-management-system.netlify.app", 
     methods: "GET, POST, PATCH, DELETE",
     allowedHeaders: "Content-Type, Authorization",
   })
