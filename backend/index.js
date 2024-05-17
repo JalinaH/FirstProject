@@ -1,22 +1,21 @@
 const express = require("express");
 const app = express();
-const port = 5000 || process.env.PORT;
-const host = "0.0.0.0" || process.env.HOST;
+const port = process.env.PORT || 5000;
+const host = process.env.HOST || "0.0.0.0";
 
 require("dotenv").config();
 const User = require("./model");
 
-app.use(express.json());
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://sample-user-management-system.netlify.app/", 
+    methods: "GET, POST, PATCH, DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+  })
+);
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://sample-user-management-system.onrender.com"
-  ); 
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -96,7 +95,7 @@ app.delete("/users/:id", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    await User.deleteOne({ id: userId }); 
+    await User.deleteOne({ id: userId });
     res.json({ message: "User deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
