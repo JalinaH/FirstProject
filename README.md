@@ -31,13 +31,13 @@ The application is live at: [User Management System](https://sample-user-managem
 ## Screenshots
 
 ### Home Page
-![Home Page](path/to/home-page-screenshot.png)
+![Home Page](https://github.com/JalinaH/FirstProject/blob/master/Screenshots/Screenshot%20(81).png)
 
 ### User Dashboard
-![User Dashboard](path/to/user-dashboard-screenshot.png)
+![User Dashboard Page](https://github.com/JalinaH/FirstProject/blob/master/Screenshots/Screenshot%20(82).png)
 
 ### User Registration
-![User Registration](path/to/user-registration-screenshot.png)
+![User Registration Page](https://github.com/JalinaH/FirstProject/blob/master/Screenshots/Screenshot%20(83).png)
 
 ### Technologies Used
 - MongoDB: Database
