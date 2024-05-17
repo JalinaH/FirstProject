@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage/HomePage";
 import UserDashBoard from "./Pages/UserDashBoard/UserDashBoard";
-import AddUser from "./Pages/AddUser/AddUser";
+import AddUser from "./Pages/AddUser/Adduser";
 
 function App() {
 
