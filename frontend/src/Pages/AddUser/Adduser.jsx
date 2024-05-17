@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./AddUser.css";
 import axios from "axios";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const AddUser = () => {
   const {id} = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     id: "",
@@ -22,7 +23,6 @@ const AddUser = () => {
   };
 
   const handleSubmit = async (event) => {
-    console.log("Handle Submit called!");
     event.preventDefault();
     try {
       if (id) {
@@ -46,6 +46,7 @@ const AddUser = () => {
         dob: "",
         account_type: "personal",
       });
+      navigate("/users");
     } catch (error) {
       console.error("Axios Error : ", error);
     }
