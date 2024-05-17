@@ -46,4 +46,4 @@ The application is live at: [User Management System](https://sample-user-managem
 - Node.js: Runtime environment
 
 ### Contact
-For any inquiries, please contact [jalinahirushan2002@gmail.com].
+For any inquiries, [please contact](jalinahirushan2002@gmail.com).
